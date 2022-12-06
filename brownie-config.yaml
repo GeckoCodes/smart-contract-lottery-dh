@@ -1,0 +1,24 @@
+dependencies:
+  - smartcontractkit/chainlink-brownie-contracts@0.5.1
+  - OpenZeppelin/openzeppelin-contracts@4.7.3
+
+compiler:
+  solc:
+    remappings:
+      - "@chainlink=smartcontractkit/chainlink-brownie-contracts@0.5.1"
+      - "@openzeppelin=OpenZeppelin/openzeppelin-contracts@4.7.3"
+
+networks:
+  default: development
+  goerli:
+    eth_usd_price_feed: 0xD4a33860578De61DBAbDc8BFdb98FD742fA7028e
+    verify: True
+  mainnet-fork-dev:
+    eth_usd_price_feed: "0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419"
+    verify: False
+
+# Need to specify this env file
+dotenv: .env
+
+wallets:
+  from_key: ${PRIVATE_KEY}
